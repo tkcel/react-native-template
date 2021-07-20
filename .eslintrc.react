@@ -1,0 +1,54 @@
+{
+  "extends": [
+    "plugin:react/all",
+    "plugin:react-hooks/recommended",
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-type-alias": [
+      "error",
+      {
+        "allowAliases": "always",
+        "allowCallbacks": "always",
+        "allowLiterals": "always"
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "react/no-unstable-nested-components": ["off"],
+    "react/jsx-indent": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-one-expression-per-line": [
+      "off"
+    ],
+    "react/jsx-max-props-per-line": ["off"],
+    "react/display-name": ["off"],
+    "react/require-optimization": ["off"],
+    "react/jsx-no-literals": ["off"],
+    "react/jsx-indent-props": ["off"],
+    "react/jsx-max-depth": ["warn", { "max": 5 }],
+    "react/prop-types": ["off"],
+    "react/forbid-component-props": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/no-multi-comp": ["off"]
+  }
+}

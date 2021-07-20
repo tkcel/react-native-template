@@ -1,0 +1,70 @@
+{
+  "name": "react-native-template",
+  "repository": "git@github.com:tkcel/react-native-template.git",
+  "author": "tkcel <team.vals.1.1.0@gmail.com>",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "pre-commit": "run-s lint-staged validate",
+    "lint-staged": "lint-staged",
+    "validate": "run-p validate:*",
+    "validate:format": "lerna exec \"prettier -c src\"",
+    "validate:type": "lerna exec \"tsc --noEmit\"",
+    "validate:lint": "lerna exec \"eslint src --ext ts,tsx\"",
+    "prepare": "husky install",
+    "postinstall": "typesync",
+    "dev": "run-p dev:*",
+    "dev:mobile": "yarn workspace @react-native-template/mobile-app start",
+    "dev:lib": "lerna exec \"concurrently --kill-others 'rollup -cw' 'tsc -p tsconfig.build.json --watch'\" --parallel --ignore @react-native-template/mobile-app",
+    "setup": "yarn && lerna bootstrap"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "prettier -w"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@rollup/plugin-typescript": "^8.2.3",
+    "@types/concurrently": "^6.2.1",
+    "@types/eslint": "^7.28.0",
+    "@types/jest": "^26.0.24",
+    "@types/prettier": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "commitizen": "^4.2.4",
+    "concurrently": "^6.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "husky": "^6.0.0",
+    "hygen": "^6.1.0",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "rollup": "^2.53.2",
+    "typescript": "^4.3.5",
+    "typesync": "^0.8.0"
+  }
+}
